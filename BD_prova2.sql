@@ -23,11 +23,13 @@ insert into `clientes` (`id_cliente`,`nome`,`email`,`telefone`) values
 ('5','Eduardo Pereira','eduardo.pereira@example.com','11955554444');
 
 insert into `pedidos` (`id_pedidos`,`id_cliente`,`data_pedido`,`total`) values
-('1',null,'2024-08-01',250.00),
-('2',null,'2024-08-03',150.00),
-('3',null,'2024-08-05',300.00),
-('4',null,'2024-08-07',450.00),
-('5',null,'2024-08-09',200.00);
+('1','1','2024-08-01',250.00),
+('2','2','2024-08-03',150.00),
+('3','3','2024-08-05',300.00),
+('4','4','2024-08-07',450.00),
+('5','5','2024-08-09',200.00);
 
-select nome, data_pedido
-from 
+select clientes.nome 
+from clientes 
+join pedidos on clientes.id_cliente = pedidos.id_cliente
+where pedidos.data_pedido = '2024-08-03';
